@@ -1,0 +1,19 @@
+.login {
+	padding-top: 15%;
+}
+
+.login .panel{
+	border-color: transparent;
+}
+
+.login .panel-heading{
+	border-color: transparent;
+	background-color: #005484;
+	color: #fff;
+	/*#257C6C;*/
+	/*#005484;*/
+}
+
+.app {
+	background-color: #edeef1;
+}

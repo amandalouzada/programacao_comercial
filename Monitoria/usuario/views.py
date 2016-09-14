@@ -12,3 +12,7 @@ def index(request):
 class UsuarioIndex(ListView):
     model = Usuario
     template_name = 'usuario/index.html'
+
+def login(request):
+	model = Usuario
+	return render(request, 'usuario/login.html')
