@@ -1,7 +1,5 @@
-from django.db import models
-
-# Create your models here.
 from __future__ import unicode_literals
+from django.db import models
 from django.core.validators import *
 from django.utils import timezone
 
@@ -31,7 +29,7 @@ class Tecnico(models.Model):
                                         code = 'cpf_invalido')
                                     ]
                             )
-    crefi = email = models.CharField(max_length=30, blank = True)
+    crefi =  models.CharField(max_length=30, blank = True)
 
     def __str__(self):
         return '{0} - {1} ({2}/{3})'.format(self.nome, self.email, self.cpf, self.crefi)

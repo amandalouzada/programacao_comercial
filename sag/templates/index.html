@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+
+    <div class="col s12 m4 l3">
+      <ul id="slide-out" class="side-nav fixed cyan darken-4 ">
+        <li>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../documento"><i class="grey-text text-lighten-3 material-icons right">description</i> Documentos</a>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../evento"><i class="grey-text text-lighten-3 material-icons right">event</i> Eventos</a>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../auxilio"><i class="grey-text text-lighten-3 material-icons right">monetization_on</i> Auxílios</a>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../esporte"><i class="grey-text text-lighten-3 material-icons right">pool</i> Esporte</a>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../materias"><i class="grey-text text-lighten-3 material-icons right">fitness_center</i> Materiais</a>
+            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../materias"><i class="grey-text text-lighten-3 material-icons right">poll</i> Estatíscas</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col s12 m8 l9">
+      {% block inicial %}
+      {% endblock %}
+    </div>
+  </div>
+
+{% endblock content %}

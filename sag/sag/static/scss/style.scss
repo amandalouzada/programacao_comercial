@@ -1,34 +1,29 @@
-$grey-darken-3: #424242 !default;
-$grey-lighten-3: #d1d1d1 !default;
-$red-lighten-3: #EF9A9A !default;
+@import "../sass/components/color";
+
 
 
 
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-  background-color: $grey-lighten-3 !important;
+  @extend  .cyan, .darken-2, .grey-text, .text-lighten-5;
   background-image: none;
   color: rgb(0, 0, 0);
 }
 
 .login {
+  padding-top: 10%;
   .panel{
   	border-color: transparent;
-    background-color: $grey-darken-3;
-    color: #fff;
+    @extend  .cyan, .darken-2, .grey-text, .text-lighten-5;
   }
   .panel-heading{
   	border-color: transparent;
-  	background-color: $grey-lighten-3;
-  	color: #000;
-  	/*#257C6C;*/
-  	/*#005484;*/
-  }
+    @extend  .teal, .lighten-2, .grey-text, .text-lighten-5;  }
   .form {
     padding-top: 10%;
   }
 }
 
 .app {
-	background-color: #edeef1;
+	@extend .indigo, .lighten-5;
 }
