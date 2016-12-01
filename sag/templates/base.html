@@ -19,6 +19,8 @@
 
         <!-- jQuery Library -->
         <!--scrollbar-->
+        <!-- <script type="text/javascript" src="{% static 'js/plugins/jquery-1.11.2.min.js' %}"></script> -->
+
         <script type="text/javascript" src="{% static 'js/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
 
 
@@ -27,7 +29,7 @@
 
         <!-- chartjs -->
         <script type="text/javascript" src="{% static 'js/plugins/chartjs/chart.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/plugins/chartjs/chart-script.js' %}"></script>
+        <!-- <script type="text/javascript" src="{% static 'js/plugins/chartjs/chart-script.js' %}"></script> -->
 
         <!-- sparkline -->
         <script type="text/javascript" src="{% static 'js/plugins/sparkline/jquery.sparkline.min.js' %}"></script>
@@ -60,7 +62,22 @@
         <link href="{% static 'js/plugins/chartist-js/chartist.min.css' %}" type="text/css" rel="stylesheet" media="screen,projection">
 
     <body class="app">
+
+      <header id="header" class="page-topbar">
+          <!-- start header nav-->
+          <div class="navbar-fixed">
+              <nav class="teal lighten-1">
+                  <div class="nav-wrapper">
+                      <ul class="left">
+                        <li class="no-hover"><a href="#" data-activates="slide-out" class="menu-sidebar-collapse btn-floating btn-flat btn-medium waves-effect waves-light teal lighten-1"><i class="mdi-navigation-menu" ></i></a></li>
+                        <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1">DEV</a> <span class="logo-text">Materialize</span></h1></li>
+                      </ul>
+                  </div>
+              </nav>
+          </div>
+          <!-- end header nav-->
+      </header>
             {% block content %}
-            {% endblock %}
-</body>
+          {% endblock %}
+    </body>
 </html>

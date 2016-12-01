@@ -1,4 +1,4 @@
 $('document').ready(function(){
-  $(".button-collapse").sideNav();
+  $(".sidebar-collapse").sideNav();
   $('select').material_select();
 });

@@ -1,11 +1,11 @@
 #main,footer {
-  padding-left: 0px;
+  /*padding-left: 0px;*/
 }
 header .brand-logo {
   margin: 1px 0px;
   padding: 0 10px;
 }
-header .brand-logo img{ 
+header .brand-logo img{
   width: 172px;
 }
 .menu-sidebar-collapse {

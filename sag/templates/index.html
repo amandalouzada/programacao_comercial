@@ -1,24 +1,81 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="row">
 
-    <div class="col s12 m4 l3">
-      <ul id="slide-out" class="side-nav fixed cyan darken-4 ">
-        <li>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../documento"><i class="grey-text text-lighten-3 material-icons right">description</i> Documentos</a>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../evento"><i class="grey-text text-lighten-3 material-icons right">event</i> Eventos</a>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../auxilio"><i class="grey-text text-lighten-3 material-icons right">monetization_on</i> Auxílios</a>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../esporte"><i class="grey-text text-lighten-3 material-icons right">pool</i> Esporte</a>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../materias"><i class="grey-text text-lighten-3 material-icons right">fitness_center</i> Materiais</a>
-            <a class="waves-effect waves-light btn-large grey-text text-lighten-4 btn-flat" href="../materias"><i class="grey-text text-lighten-3 material-icons right">poll</i> Estatíscas</a>
+
+
+
+
+
+<div id="main">
+  <!-- START WRAPPER -->
+  <div class="wrapper">
+
+    <!-- START LEFT SIDEBAR NAV-->
+    <aside id="left-sidebar-nav">
+      <ul id="slide-out" class="side-nav fixed leftside-navigation teal">
+        <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Documentos</a>
+        </li>
+        <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Eventos</a>
+        </l>
+        <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Auxílios</a>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Esporte</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="css-typography.html">Atleta</a>
+                  </li>
+                  <li><a href="css-icons.html">Técnico</a>
+                  </li>
+                  <li><a href="css-shadow.html">Locais</a>
+                  </li>
+                  <li><a href="css-media.html">Materiais</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </li>
       </ul>
-    </div>
-    <div class="col s12 m8 l9">
-      {% block inicial %}
-      {% endblock %}
-    </div>
-  </div>
+      <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only purple"><i class="mdi-navigation-menu"></i></a>
+    </aside>
+    <!-- END LEFT SIDEBAR NAV-->
 
-{% endblock content %}
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START CONTENT -->
+    <section id="content">
+
+      <!--start container-->
+      <div class="container">
+        <div class="section">
+
+          <div class="divider"></div>
+
+          {% block inicial %}
+          {% endblock %}
+          <!-- Floating Action Button -->
+        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+            <a class="btn-floating btn-large red">
+              <i class="large mdi-editor-mode-edit"></i>
+            </a>
+            <ul>
+              <li><a href="novo.html" class="btn-floating red"><i class="large material-icons">add</i></a></li>
+              <li><a href="editar.html" class="btn-floating yellow darken-1"><i class="large material-icons">mode_edit</i></a></li>
+              <li><a href="excluir.html" class="btn-floating green"><i class="large material-icons">delete</i></a></li>
+            </ul>
+        </div>
+        <!-- Floating Action Button -->
+          <!--end container-->
+
+        </section>
+        <!-- END CONTENT -->
+
+      </div>
+      <!-- END WRAPPER -->
+
+    </div>
+
+    {% endblock content %}
