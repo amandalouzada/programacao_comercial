@@ -12,3 +12,16 @@ from .forms import *
 class AtletasList(ListView):
   model = Atleta
   template_name = 'esporte/atleta_listar.html'
+
+  # Create your views here.
+
+class AtletaNovo(CreateView):
+    model = Atleta
+    form_class = FormularioAtleta
+    template_name = 'esporte/atleta_novo.html'
+    success_url = reverse_lazy('novo-atleta')
+
+
+class Atletas(ListView):
+  model = Atleta
+  template_name = 'esporte/atleta.html'

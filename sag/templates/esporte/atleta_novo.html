@@ -1,0 +1,45 @@
+{% block inicial %}
+<!--chart dashboard start-->
+<div id="novo_atleta" class="section">
+  <section id="content">
+
+    <!--start container-->
+    <div class="container">
+      <form action="/esporte/atleta/novo/" method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="" for="id_nome">Nome:</label>
+            <input id="id_nome" maxlength="50" name="nome" required="" type="text">
+          </div>
+          <div class="input-field col s4">
+            <label class="" for="id_email">Email:</label>
+            <input id="id_email" maxlength="50" name="email" required="" type="text">
+          </div>
+          <div class="input-field col s4">
+            <label class="" for="id_cpf">Cpf:</label>
+            <input id="id_cpf" maxlength="14" name="cpf" required="" type="text">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <label class="" for="id_matricula">Matricula:</label>
+            <input id="id_matricula" min="0" name="matricula" required="" type="number">
+          </div>
+          <div class="input-field col s4">
+            <label class="" for="id_curso">Curso:</label>
+            <input id="id_curso" maxlength="100" name="curso" required="" type="text">
+          </div>
+          <div class="input-field col s4">
+            <label class="" for="id_dataNascimento">Data de Nascimento:</label>
+            <input  id="id_dataNascimento" class="datepicker" name="dataNascimento" required="" type="date">
+            <label class="" for="id_dataNascimento">Data de Nascimento:</label>
+            <!-- <i style="" class="waves-effect waves-light btn waves-input-wrapper"><input class="waves-button-input" value="Salvar" type="submit"></i> -->
+          </div>
+        </div>
+        <input class="waves-effect waves-light btn" type="submit" value="Salvar" />
+      </form>
+    </div>
+  </section>
+</div>
+{% endblock inicial %}

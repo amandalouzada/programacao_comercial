@@ -14,24 +14,24 @@
     <!-- START LEFT SIDEBAR NAV-->
     <aside id="left-sidebar-nav">
       <ul id="slide-out" class="side-nav fixed leftside-navigation teal">
-        <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Documentos</a>
+        <li class="bold"><a href="index.html" class="waves-effect waves-cyan white-text"><i class="mdi-action-dashboard"></i> Documentos</a>
         </li>
-        <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Eventos</a>
+        <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan white-text"><i class="mdi-communication-email"></i> Eventos</a>
         </l>
-        <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Auxílios</a>
+        <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan white-text"><i class="mdi-editor-insert-invitation"></i> Auxílios</a>
         </li>
-        <li class="no-padding">
+        <li class="no-padding white-text">
           <ul class="collapsible collapsible-accordion">
-            <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> Esporte</a>
+            <li class="bold white-text"><a class="collapsible-header waves-effect waves-cyan "><i class="mdi-action-invert-colors"></i> Esporte</a>
               <div class="collapsible-body">
                 <ul>
-                  <li><a href="css-typography.html">Atleta</a>
+                  <li><a href="/esporte/atleta/listar">Atleta</a>
                   </li>
-                  <li><a href="css-icons.html">Técnico</a>
+                  <li><a href="/esporte/atleta/listar">Técnico</a>
                   </li>
-                  <li><a href="css-shadow.html">Locais</a>
+                  <li><a href="/esporte/atleta/listar">Locais</a>
                   </li>
-                  <li><a href="css-media.html">Materiais</a>
+                  <li><a href="/esporte/atleta/listar">Materiais</a>
                   </li>
                 </ul>
               </div>
@@ -39,7 +39,7 @@
           </ul>
         </li>
       </ul>
-      <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only purple"><i class="mdi-navigation-menu"></i></a>
+      <a href="#" data-activates="slide-out" class="sidebar-collapse  btn-medium waves-effect waves-light hide-on-large-only white-text"><i class="material-icons">menu</i></a>
     </aside>
     <!-- END LEFT SIDEBAR NAV-->
 
@@ -50,10 +50,6 @@
 
       <!--start container-->
       <div class="container">
-        <div class="section">
-
-          <div class="divider"></div>
-
           {% block inicial %}
           {% endblock %}
           <!-- Floating Action Button -->
@@ -72,8 +68,6 @@
 
         </section>
         <!-- END CONTENT -->
-
-      </div>
       <!-- END WRAPPER -->
 
     </div>

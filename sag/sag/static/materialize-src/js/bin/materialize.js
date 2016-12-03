@@ -1273,7 +1273,7 @@ $(document).ready(function(){
       }
 
       // append indicator then set indicator width to tab width
-      $this.append('<div class="indicator"></div>');
+      $this.append('<div class="indicator teal"></div>');
       var $indicator = $this.find('.indicator');
       if ($this.is(":visible")) {
         $indicator.css({"right": $tabs_width - (($index + 1) * $tab_width)});
@@ -2029,7 +2029,7 @@ $(document).ready(function(){
         }
         else {
           // Insert as text;
-          toast.innerHTML = html; 
+          toast.innerHTML = html;
         }
         // Bind hammer
         var hammerHandler = new Hammer(toast, {prevent_default: false});

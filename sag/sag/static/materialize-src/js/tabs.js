@@ -42,7 +42,7 @@
       }
 
       // append indicator then set indicator width to tab width
-      $this.append('<div class="indicator"></div>');
+      $this.append('<div class="indicator teal"></div>');
       var $indicator = $this.find('.indicator');
       if ($this.is(":visible")) {
         $indicator.css({"right": $tabs_width - (($index + 1) * $tab_width)});
