@@ -19,6 +19,7 @@ $('document').ready(function(){
 
   // Materialize modified
   weekdaysLetter: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+  format: 'dd/mm/yyyy',
 
   // Today and clear
   today: 'Hoje',

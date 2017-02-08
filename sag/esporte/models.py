@@ -43,24 +43,6 @@ class Modalidade(models.Model):
         return self.nome
 
 
-class Local(models.Model):
-    nome = models.CharField(max_length = 50)
-    endereco = models.CharField(max_length=100, blank = True)
-
-    def __str__(self):
-        return '{0} - {1} ({2}/{3})'.format(self.nome, self.endereco)
-
-class Material(models.Model):
-    nome = models.CharField(max_length = 50)
-    quantidade = models.PositiveIntegerField()
-    patrimonio = models.PositiveIntegerField( blank = True)
-    descricao = models.CharField(max_length=200, blank = True)
-    modalidades = models.ManyToManyField(Modalidade)
-
-
-    def __str__(self):
-        return self.nome
-
 
 class Equipe(models.Model):
     nome = models.CharField(max_length = 50)
@@ -80,7 +62,7 @@ class Evento(models.Model):
     dataInicio = models.DateField(auto_now = False , blank = True)
     dataFim = models.DateField(auto_now = False, blank = True)
     equipes = models.ManyToManyField(Atleta)
-    tipo = models.SmallIntegerField(choices=[(1, 'NACIONAL-UNIVERSTARIO'), (2, 'ESTADUAL-UNIVERSTARIO'),(3, 'REGIONAL-UNIVERSTARIO'), (4, 'NACIONAL'), (5, 'ESTADUAL'), (6, 'REGIONAL'), (7, 'OUTRO')])
+    tipo = models.SmallIntegerField(choices=[(1, 'NACIONAL-UNIVERSTARIO'), (2, 'ESTADUAL-UNIVERSTARIO'),(3, 'REGIONAL-UNIVERSTARIO'), (4, 'NACIONAL'), (5, 'ESTADUAL'), (6, 'REGIONAL'), (7, 'INTERNO'), (8, 'OUTRO')])
 
 
 

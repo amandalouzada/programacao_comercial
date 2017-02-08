@@ -313,6 +313,9 @@ li.li-hover:hover{
 }
 /* JavaScript Turned Off */
 
+.hidden{
+  display:none;
+}
 .no-js #loader-wrapper {
   display: none;
 }

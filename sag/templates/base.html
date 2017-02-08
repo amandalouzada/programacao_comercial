@@ -70,7 +70,12 @@
                   <div class="nav-wrapper">
                       <ul class="left">
                         <!-- <li class="no-hover"><a href="#" data-activates="slide-out" class="menu-sidebar-collapse btn-floating btn-flat btn-medium waves-effect waves-light teal lighten-1"><i class="mdi-navigation-menu" ></i></a></li> -->
-                        <li><h1 class="logo-wrapper"><a href="index.html" class="brand-logo darken-1">DEV</a></h1></li>
+                        <li><h1 class="logo-wrapper"><a href="#" class="brand-logo darken-1">DEV</a></h1></li>
+                      </ul>
+                      <ul class="right hide-on-med-and-down">
+                        {% if user.is_authenticated %}
+                          <li><a href="/sair" class="white-text"><i class="material-icons">power_settings_new</i></a></li>
+                        {% endif %}
                       </ul>
                   </div>
               </nav>
