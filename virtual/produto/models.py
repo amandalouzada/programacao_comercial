@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from django.db import models
-from const import *
+from .const import *
 
 # Create your models here.
 class Produto(models.Model):
