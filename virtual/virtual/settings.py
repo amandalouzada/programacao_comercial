@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'virtual.wsgi.application'
 DATABASES = {
      'default': {
      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-     'NAME': 'meuMenu',
+     'NAME': 'BD_MENU',
      'USER': 'pgcomercial',
      'PASSWORD': 'pgcomercial',
      'HOST': '127.0.0.1',
@@ -128,3 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR.child('static'),)
 STATIC_ROOT = BASE_DIR.parent.child('static')
+
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = '%s/images' % BASE_DIR
