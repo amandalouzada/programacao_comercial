@@ -1,0 +1,25 @@
+@media only screen and (max-width: 992px) {
+  header{
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header{
+    padding-left: 0px;
+  }
+}
+
+.card-image {
+  max-width: 40%;
+  padding: 10px;
+}
+
+a.card-image{
+  max-width: 40%;
+  padding: 50px;
+}
+
+.imagem{
+  max-width: 90%;
+}

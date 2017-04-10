@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+{% include 'menu.html'%}
+<div class="input-field col s6">
+  <i class="material-icons prefix">search</i>
+  <input id="icon_prefix" type="text" class="validate">
+  <label for="icon_prefix">Buscar</label>
+</div>
+
+<div class="row">
+  {% for mesa in object_list %}
+    <div class="col s2">
+      <a href="/mesa/update/{{mesa.numero}}" class="btn large {% if mesa.status == 1 %} purple darken-4 {% endif %}">{{mesa.numero}}</a>
+    </div>
+  {% if forloop.counter|divisibleby:6 %}
+</div>
+<div class="row">
+  {% endif %}
+  {% empty %}
+  <h5>Nenhuma mesa cadastrada</h5>
+  {% endfor %}
+</div>
+<div class="fixed-action-btn">
+  <a href="#addMesa" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</div>
+  <div id="addMesa" class="modal">
+    <div class="modal-content">
+      <h4>Adicionar Mesas</h4>
+      <form role="form" action="/mesa/novasMesas" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="box-body">
+          <div class="input-field">
+            <label for="id_qtd_mesa">Quantidade de Mesas:</label>
+            <input id="id_qtd_mesa" maxlength="150" name="qtd_mesa" type="text">
+          </div>
+          <!-- /.box-body -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% for mesa in object_list %}
+  <div id="updateMesa{{mesa.numero}}" class="modal">
+    <div class="modal-content">
+      <h4>{{mesa.numero}}</h4>
+      {% csrf_token %}
+      <div class="box-body">
+        {% for campo in form %}
+            {% if campo.errors%}
+            <div class="form-group has-error">
+                <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> {{campo.label}}:</label>
+                {{campo}}
+                <span class="help-block">{{campo.errors}}</span>
+            </div>
+
+            {% else %}
+              <div class="form-group">
+                  <label class="myLabel">{{ campo.label }}:</label>
+                      {{ campo }}
+              </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+</div>
+  {% endfor %}
+{% endblock content %}
