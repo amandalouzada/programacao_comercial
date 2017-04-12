@@ -1,0 +1,50 @@
+<header>
+  <nav class="nav-fixed light-blue darken-4" *ngIf="mostrarMenu">
+    <div class="nav-wrapper">
+      <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+      <a class="brand-logo right" href="logout"><i class="white-text material-icons">power_settings_new</i></a>
+    </div>
+  </nav>
+  <ul id="slide-out" class="side-nav fixed blue-grey darken-4 white-text"  *ngIf="mostrarMenu" >
+    {% if user.is_authenticated%}
+    <div class="container" align="center">
+      <i class="white-text large material-icons">face</i>
+      <h5>{{user.get_full_name}}</h5>
+    </div>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li class="white-text">
+        <div class="collapsible-header"><h5>Evento</h5></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li><a class="white-text" routerLink="consumo"><i class="white-text material-icons">settings</i>Gerenciar</a></li>
+          <li><a class="white-text" routerLink="consumoDiario"><i class="white-text material-icons">computer</i>Site</a></li>
+          <li><a class="white-text" routerLink="consumoMensal"><i class="white-text material-icons">group</i>Palestrantes</a></li>
+          <li><a class="white-text" routerLink="consumo"><i class="white-text material-icons">library_add</i>Novo Evento</a></li>
+        </ul>
+      </li>
+      <li class="white-text">
+        <div class="collapsible-header"><h5>Inscrições</h5></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li ><a class="white-text" routerLink="/financeiro"><i class="white-text material-icons">settings</i>Gerenciar</a></li>
+          <li ><a class="white-text" routerLink="/financeiro/novo"><i class="white-text material-icons">playlist_add_check</i>Inscrever</a></li>
+        </ul>
+      </li>
+      <li class="white-text">
+        <div class="collapsible-header"><h5>Presenças</h5></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li ><a class="white-text" routerLink="/usuarios"><i class="white-text material-icons">settings</i>Gerenciar</a></li>
+          <li ><a class="white-text" routerLink="/usuarios"><i class="white-text material-icons">check</i>Presença Individual</a></li>
+        </ul>
+      </li>
+      <li class="white-text">
+        <div class="collapsible-header"><h5>Programação</h5></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li ><a class="white-text" routerLink="/classes"><i class="white-text material-icons">settings</i>Gerenciar</a></li>
+          <li ><a class="white-text" routerLink="/classes/novo"><i class="white-text material-icons">add_circle</i>Cadastrar</a></li>
+        </ul>
+      </li>
+    </ul>
+  </ul>
+  {%endif%}
+</header>

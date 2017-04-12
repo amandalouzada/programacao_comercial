@@ -1,7 +1,0 @@
-from django.conf.urls import url
-from . import views
-
-urlpatterns = [
-    url(r'^$', views.Autenticacao.as_view(), name='login'),
-    url(r'^logout/', views.Logout.as_view(), name='logout'), # chama a classe Index quando a url eh /
-]
