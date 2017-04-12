@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'produto/menu.html'%}
+  <div class="input-field col s6">
+    <i class="material-icons prefix">search</i>
+    <input id="icon_prefix" type="text" class="validate">
+    <label for="icon_prefix">Buscar</label>
+  </div>
+
+  {% for produto in object_list %}
+
+  <div class="card horizontal">
+      <div class="card-image">
+        {% for imagem in produto.produtos.all %}
+          {% if forloop.first %}
+            <img src="/images/{{imagem.imageFile}}">
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5>{{produto.nome}}</h5>
+          <p>{{produto.descricao}}</p>
+          <p><b>Valor: </b>{{produto.preco}}</p>
+        </div>
+        <div class="card-action">
+          <a href="/produto/update/{{produto.id}}"><i class="material-icons">mode_edit</i></a>
+          <a href="#"><i class="material-icons">delete</i></a>
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <h5>Nenhum produto cadastrado</h5>
+  {% endfor %}
+{% endblock content %}
