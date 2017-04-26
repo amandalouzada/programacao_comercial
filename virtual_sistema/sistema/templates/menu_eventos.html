@@ -1,0 +1,28 @@
+<header>
+  <nav class="nav-fixed light-blue darken-4" *ngIf="mostrarMenu">
+    <div class="nav-wrapper">
+      <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+      <a class="brand-logo right" href="/logout"><i class="white-text material-icons">power_settings_new</i></a>
+    </div>
+  </nav>
+  <ul id="slide-out" class="side-nav fixed blue-grey darken-4 white-text"  *ngIf="mostrarMenu" >
+    {% if user.is_authenticated%}
+    <div class="container" align="center">
+      <i class="white-text large material-icons">face</i>
+      <h5>{{user.get_full_name}}</h5>
+    </div>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li class="white-text">
+        <div class="collapsible-header active"><h5>Eventos</h5></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li><a class="white-text" href="/eventos"><i class="white-text material-icons">list</i>Listar</a></li>
+          <li><a class="white-text" href="/eventos/novo"><i class="white-text material-icons">add_circle</i>Novo</a></li>
+          <li><a class="white-text" href="/usuarios"><i class="white-text material-icons">person</i>Usuários</a></li>
+        </ul>
+      </li>
+    </ul>
+  </ul>
+  {%endif%}
+</header>

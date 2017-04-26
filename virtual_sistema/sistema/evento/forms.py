@@ -4,6 +4,6 @@ from .models import *
 
 class EventoForm(forms.ModelForm):
 
-    class: Meta:
+    class Meta:
         model = Evento
         exclude = []

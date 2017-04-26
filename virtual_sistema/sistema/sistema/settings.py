@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'sistema.wsgi.application'
 DATABASES = {
      'default': {
      'ENGINE': 'django.db.backends.postgresql_psycopg2',
-     'NAME': 'BD_MENU',
+     'NAME': 'EVENTOS_BD',
      'USER': 'pgcomercial',
      'PASSWORD': 'pgcomercial',
      'HOST': '127.0.0.1',

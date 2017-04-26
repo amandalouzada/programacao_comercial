@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_eventos.html'%}
+
+<main>
+  <h3>Cadastrar novo evento</h3>
+  <form class="row" action="/eventos/novo/" method="post">
+    {%csrf_token%}
+    {%for campo in form%}
+    <div class="input-field col s6">
+      {{campo}}
+      <label>{{campo.label}}</label>
+    </div>
+    {%endfor%}
+    <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+  </form>
+</main>
+{% endblock content %}

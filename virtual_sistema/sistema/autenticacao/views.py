@@ -1,10 +1,11 @@
 from django.shortcuts import render
 
-from django.views.generic import View
+from django.views.generic import View, ListView
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from evento.models import *
 
 
 
@@ -27,7 +28,7 @@ class Autenticacao(View):
         user = authenticate(username=usuario, password=senha)
         if user:
             login(request, user)
-            return redirect(reverse_lazy('index'))
+            return redirect(reverse_lazy('listar-eventos'))
         else:
             resposta['mensagem'] = 'Usuário ou senha incorreto'
             resposta['login'] = usuario
@@ -36,11 +37,12 @@ class Autenticacao(View):
 
 
 class Logout(LoginRequiredMixin,View):
+    login_url = "/"
     def get(self,request):
         logout(request)
         return redirect('/')
 
 
-class Index(View):
-    def get(self,request):
-        return render(request,'index.html', {})
+class Index(ListView):
+    model = Evento
+    template_name = 'index.html'

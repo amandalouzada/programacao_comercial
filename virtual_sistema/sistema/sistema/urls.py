@@ -17,9 +17,14 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from sistema import settings
 from autenticacao import views
+from evento.views import *
+from participante.views import *
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('autenticacao.urls', namespace="autenticacao")),
     url(r'^index', views.Index.as_view(), name="index"),
+    url(r'^', include('autenticacao.urls')),
+    url(r'^eventos/', include('evento.urls')),
+    url(r'^participantes/', include('participante.urls')),
 ]

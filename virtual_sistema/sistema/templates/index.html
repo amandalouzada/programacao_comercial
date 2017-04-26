@@ -1,7 +1,36 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-{% include 'menu.html'%}
-
-  <h1>Bem vindo {{user.get_short_name}}</h1>
+<nav class="nav-fixed light-blue darken-4" *ngIf="mostrarMenu">
+  <div class="nav-wrapper">
+    <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only">
+      <i class="material-icons">menu</i>
+    </a>
+    {% if user.is_authenticated%}
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="brand-logo right" href="/logout"><i class="white-text material-icons">power_settings_new</i></a></li>
+    </ul>
+    {% else %}
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Login</a></li>
+        <li><a href="/participantes/novoUsuario">Cadastre-se</a></li>
+    </ul>
+    {% endif %}
+  </div>
+</nav>
+<div class="parallax-container">
+  <div class="parallax">
+      <img src="{% static "imagens/parallax.png"%}"/>
+  </div>
+  <div class="container">
+    <h1 class="blue-text">Inscrição em Eventos</h1>
+  </div>
+<div class="container">
+  <div class="collection">
+  {% for evento in object_list %}
+    <a href="/eventos" class="collection-item">{{evento.nome}} <i class=" right material-icons">send</i></a>
+  {% endfor %}
+  </div>
+</div>
+</div>
 {% endblock content %}
