@@ -3,17 +3,16 @@
 {% block content %}
 {% include 'menu_eventos.html'%}
 
+
 <main>
-  <h3>Cadastrar novo evento</h3>
-  <form class="row" action="/eventos/novo/" method="post">
-    {%csrf_token%}
-    {%for campo in form%}
-    <div class="input-field col s6">
-      {{campo}}
-      <label>{{campo.label}}</label>
-    </div>
-    {%endfor%}
-    <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
-  </form>
+  <div class="container">
+      <h3>{{object.nome}}</h3>
+      <p>{{object.descricao}}</p>
+      <h5>Local: {{object.local}}</h5>
+      <h5>Endereço: {{object.endereco}}</h5>
+      <h5>Data de Início: {{object.dataInicio}}</h5>
+      <h5>Data de Fim: {{object.dataFim}}</h5>
+      <a href="/eventos/inscricao/{{object.id}}" class="waves-effect waves-light btn">Inscrever-se</a>
+  </div>
 </main>
 {% endblock content %}

@@ -8,11 +8,13 @@ from participante.models import *
 class Inscricao(models.Model):
     data = models.DateField(default=datetime.now)
     ativa = models.IntegerField(default=1)
-    homologada = models.IntegerField(default=0)
-    codigo = models.IntegerField()
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
     participante = models.ForeignKey(Participante, on_delete=models.CASCADE, null=False)
 
+    @classmethod
+    def create(cls, evento, participante):
+        inscricao = cls(evento=evento, participante=participante)
+        return inscricao
 
 
     def __str__(self):
