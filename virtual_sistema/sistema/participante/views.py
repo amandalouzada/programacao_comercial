@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, FormView
+from django.views.generic import CreateView, ListView, FormView, DetailView
 from .forms import *
 from .models import *
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -63,3 +63,9 @@ class ParticipanteList(LoginRequiredMixin, ListView):
     login_url = "/"
     model = Participante
     template_name = 'participante/listar.html'
+
+
+class ParticipanteDetalhe(LoginRequiredMixin, DetailView):
+    login_url = "/"
+    model = Participante
+    template_name = 'participante/detalhe.html'

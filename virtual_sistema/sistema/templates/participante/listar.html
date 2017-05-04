@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_eventos.html'%}
+
+<main>
+    <div class="container">
+      <h3>Usuários</h3>
+      <div class="collection">
+      {% for participante in object_list %}
+        <a href="/participantes/detalhe/{{participante.id}}" class="collection-item">{{participante.usuario}}</a>
+      {% endfor %}
+      </div>
+    </div>
+</main>
+{% endblock content %}

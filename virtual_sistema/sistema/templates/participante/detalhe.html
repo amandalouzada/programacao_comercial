@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_eventos.html'%}
+
+
+<main>
+  <div class="container">
+      <h3>{{object.usuario.first_name}} {{object.usuario.last_name}}</h3>
+      <p>{{object.usuario.email}}</p>
+      <h5>Cracha: {{object.nomeCracha}}</h5>
+      <h5>Endereço: {{object.endereco}}</h5>
+  </div>
+</main>
+{% endblock content %}

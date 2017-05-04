@@ -6,6 +6,10 @@ from participante.models import *
 # Create your models here.
 
 class Inscricao(models.Model):
+    class Meta:
+        unique_together = (('evento','participante'))
+
+        
     data = models.DateField(default=datetime.now)
     ativa = models.IntegerField(default=1)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
