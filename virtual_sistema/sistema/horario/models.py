@@ -8,6 +8,5 @@ class Horario(models.Model):
     evento = models.ForeignKey(Evento)
 
 
-
     def __str__(self):
         return '{0} - {1}'.format(self.dataInicio, self.dataFim)
