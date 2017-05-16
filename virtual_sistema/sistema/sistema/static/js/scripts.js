@@ -4,6 +4,8 @@ $(document).ready(function(){
   $('.button-collapse').sideNav();
   $('.collapsible').collapsible();
   $('.parallax').parallax();
+  $('select').material_select();
+
 
   $('.datepicker').pickadate({
       monthsFull: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agost', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],

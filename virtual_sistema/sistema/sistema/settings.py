@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'evento.apps.EventoConfig',
-    'horario.apps.HorarioConfig',
     'inscricao.apps.InscricaoConfig',
     'participante.apps.ParticipanteConfig',
     'autenticacao.apps.AutenticacaoConfig'

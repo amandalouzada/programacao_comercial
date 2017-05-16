@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_eventos.html'%}
+
+<main class="container">
+  {% for message in messages %}
+  <div class="card red lighten-4">
+    <div class="card-content">
+      <p>{{message}}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+  <form class="row" action="/eventos/novaProgramacao/{{id}}" method="post">
+    {%csrf_token%}
+    {%for campo in form%}
+    <div class="input-field col s6">
+      {{campo}}
+      <label>{{campo.label}}</label>
+    </div>
+    {%endfor%}
+    <div class="input-field col s12">
+      <textarea class="materialize-textarea" type="text" name="descricao" id="id_descricao" maxlength="400" required=""></textarea>
+      <label>Descrição</label>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+  </form>
+</main>
+{% endblock content %}

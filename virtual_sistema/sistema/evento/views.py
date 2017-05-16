@@ -98,3 +98,27 @@ class EventoListInscricao(LoginRequiredMixin, ParticipanteMixin, ListView):
     def get_queryset(self):
         queryset = Inscricao.objects.filter(evento=self.kwargs['pk'])
         return queryset
+
+
+class ProgramacaoCreate(LoginRequiredMixin, ParticipanteMixin, TemplateView):
+    login_url="/"
+    model = Programacao
+    form_class= ProgramacaoForm
+    template_name = 'evento/programacao.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProgramacaoCreate, self).get_context_data(**kwargs)
+        context['form'] = self.form_class
+        context['id'] = kwargs['pk']
+        return context
+
+    def post(self, request, **kwargs):
+        evento = Evento.objects.get(pk=kwargs['pk'])
+        form = ProgramacaoForm(request.POST)
+        if form.is_valid():
+            programacao = form.save(commit=False)
+            programacao.evento = evento
+        try:
+            programacao.save()
+        except Exception as e:
+            return redirect(reverse_lazy('listar-eventos'))

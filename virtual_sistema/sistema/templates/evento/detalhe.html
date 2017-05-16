@@ -42,8 +42,12 @@
         <p><strong>Endereço:</strong> {{object.endereco}}</p>
         <p><strong>Data de Início:</strong> {{object.dataInicio}}</p>
         <p><strong>Data de Fim:</strong> {{object.dataFim}}</p>
+        <a href="/eventos/novaProgramacao/{{object.pk}}" class="waves-effect waves-light btn">Cadastrar Programação</a>
+
       </div>
     </div>
+
+
 
     {% if request.user.is_staff %}
 
@@ -63,6 +67,7 @@
     {% endif %}
 
   </div>
+
 
 </main>
 {% endblock content %}

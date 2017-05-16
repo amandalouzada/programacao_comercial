@@ -14,3 +14,22 @@ class Evento(models.Model):
 
     def __str__(self):
         return '{0} - {1}'.format(self.nome, self.descricao)
+
+
+TIPO_PROGRAMACAO = (
+    (1,'Mini-curso'),
+    (2,'Palestra'),
+    (3,'WorkShop'),
+    (4,'Apresentação de Trabalho')
+)
+# Create your models here.
+class Programacao(models.Model):
+    nome = models.CharField(max_length = 100)
+    descricao = models.CharField(max_length = 400)
+    tipo = models.IntegerField(choices=TIPO_PROGRAMACAO, default=2)
+    dataInicio = models.DateField("Início",null=False)
+    dataFim = models.DateField("Fim",null=False)
+    evento = models.ForeignKey(Evento)
+
+    def __str__(self):
+        return '{0} - {1}'.format(self.nome, self.evento)
