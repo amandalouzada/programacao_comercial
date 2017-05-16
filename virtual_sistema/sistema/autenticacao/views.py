@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from evento.models import *
+from participante.models import *
 
 
 
@@ -13,6 +14,7 @@ class Autenticacao(View):
     def get(self,request):
         if request.user.is_authenticated():
             return redirect(reverse_lazy('index'))
+
         else:
             return render(request,'autenticacao/login.html', {})
 

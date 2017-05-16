@@ -10,6 +10,7 @@
       <p>{{object.usuario.email}}</p>
       <h5>Cracha: {{object.nomeCracha}}</h5>
       <h5>Endereço: {{object.endereco}}</h5>
+      <a href="/admin/auth/user/{{object.usuario.pk}}/password/" class="waves-effect red darken-1 waves-light btn">Alterar senha</a>
   </div>
 </main>
 {% endblock content %}

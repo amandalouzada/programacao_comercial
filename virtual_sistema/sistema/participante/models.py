@@ -10,8 +10,6 @@ class Participante(models.Model):
     endereco = models.CharField("Endereço",max_length = 200)
     municipio = models.CharField("Município",max_length = 20)
     uf = models.CharField("UF", max_length = 2)
-    status = models.IntegerField()
-    codigoConfirmacao =models.CharField("Codigo de confirmação",max_length = 200)
 
 
     def __str__(self):

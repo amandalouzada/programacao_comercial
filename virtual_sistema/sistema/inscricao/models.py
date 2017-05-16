@@ -9,7 +9,7 @@ class Inscricao(models.Model):
     class Meta:
         unique_together = (('evento','participante'))
 
-        
+
     data = models.DateField(default=datetime.now)
     ativa = models.IntegerField(default=1)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
@@ -20,6 +20,5 @@ class Inscricao(models.Model):
         inscricao = cls(evento=evento, participante=participante)
         return inscricao
 
-
     def __str__(self):
-        return '{0} - {1}'.format(self.data, self.codigo)
+        return '{0} - {1}'.format(self.data, self.participante)

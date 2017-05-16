@@ -6,26 +6,63 @@
 
 <main>
   <div class="container">
-    <a href="/eventos/inscricoes/{{object.id}}" class="waves-effect waves-light btn">Inscritos</a>
-
-      {%if messages %}
-        {% for message in messages %}
-          <div class="card red lighten-4">
-            <div class="card-content">
-              <p>{{message}}</p>
-            </div>
-          </div>
-        {% endfor %}
-      {% endif %}
-      <h3>{{object.nome}}</h3>
-      <p>{{object.descricao}}</p>
-      <h5>Local: {{object.local}}</h5>
-      <h5>Endereço: {{object.endereco}}</h5>
-      <h5>Data de Início: {{object.dataInicio}}</h5>
-      <h5>Data de Fim: {{object.dataFim}}</h5>
-      <form action="/eventos/detalhe/{{object.id}}" method="post">{% csrf_token %}
+    {% if status %}
+      <div class="row">
+        <div class="col offset-s6">
+          <button type="submit" class="blue darken-4 waves-effect waves-light btn">Inscrição realizada</button>
+        </div>
+      </div>
+    {% else %}
+    <div class="row">
+      <form class="col offset-s8"action="/eventos/detalhe/{{object.id}}" method="post">{% csrf_token %}
         <button type="submit" class="waves-effect waves-light btn">Inscrever-se</button>
       </form>
+    </div>
+    {% endif %}
+
+    {%if messages %}
+      {% for message in messages %}
+      <div class="row">
+        <div class="col s6">
+          <div class="card red lighten-4">
+              <div class="card-content">
+                <p>{{message}}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="card">
+      <div class="card-content">
+        <h3>{{object.nome}}</h3>
+        <p>{{object.descricao}}</p>
+        <p><strong>Local:</strong> {{object.local}}</p>
+        <p><strong>Endereço:</strong> {{object.endereco}}</p>
+        <p><strong>Data de Início:</strong> {{object.dataInicio}}</p>
+        <p><strong>Data de Fim:</strong> {{object.dataFim}}</p>
+      </div>
+    </div>
+
+    {% if request.user.is_staff %}
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header">Lista de Inscritos</div>
+        <div class="collapsible-body">
+          <div class="collection">
+            {% for inscricao in inscritos %}
+            <div class="collection-item">{{inscricao.participante.usuario.first_name}} {{inscricao.participante.usuario.last_name}}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    {% endif %}
+
   </div>
+
 </main>
 {% endblock content %}

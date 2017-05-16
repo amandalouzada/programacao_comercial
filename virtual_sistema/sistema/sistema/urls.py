@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^index', views.Index.as_view(), name="index"),
     url(r'^', include('autenticacao.urls')),
     url(r'^eventos/', include('evento.urls')),
-    url(r'^participantes/', include('participante.urls')),
+    url(r'^participantes/', include('participante.urls'))
 ]

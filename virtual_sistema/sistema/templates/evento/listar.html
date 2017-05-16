@@ -3,11 +3,11 @@
 {% block content %}
 {% include 'menu_eventos.html'%}
 
-<main>
-    <div class="container"><h3>Eventos</h3></div>
+<main class="container">
+    <h3>Eventos</h3>
     <div class="collection">
     {% for evento in object_list %}
-      <a href="/eventos/detalhe/{{evento.id}}" class="collection-item">{{evento.nome}}</a>
+      <a href="/eventos/detalhe/{{evento.id}}" class="collection-item">{{evento.nome}}<i class=" right material-icons">send</i></a>
     {% endfor %}
     </div>
 </main>

@@ -3,8 +3,16 @@
 {% block content %}
 {% include 'menu_eventos.html'%}
 
-<main>
-  <h3>Cadastrar novo evento</h3>
+<main class="container">
+  {% for message in messages %}
+  <div class="card red lighten-4">
+    <div class="card-content">
+      <p>{{message}}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+  <h4>Novo Evento</h4>
   <form class="row" action="/eventos/novo/" method="post">
     {%csrf_token%}
     {%for campo in form%}
@@ -13,6 +21,17 @@
       <label>{{campo.label}}</label>
     </div>
     {%endfor%}
+    <div class="input-field col s6">
+      <input type="date" class="datepicker" name="horario">
+      <label>Início</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="date" class="datepicker" name="horario">
+      <label>Fim</label>
+    </div>
+    <div class="input-field col s12">
+      <input class="datetimepicker" type="text" >
+    </div>
     <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
   </form>
 </main>

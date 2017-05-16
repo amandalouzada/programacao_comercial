@@ -12,6 +12,15 @@
   </div>
 </nav>
 
+{% for message in messages %}
+<div class="card red lighten-4">
+  <div class="card-content">
+    <p>{{message}}</p>
+  </div>
+</div>
+{% endfor %}
+
+
 <h4>Novo Participante</h4>
 <form class="row" action="/participantes/novoUsuario/" method="post" >
   <div class="col s6 offset-s3">
