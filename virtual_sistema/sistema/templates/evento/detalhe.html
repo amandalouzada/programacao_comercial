@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-{% include 'menu_eventos.html'%}
+{% include 'menu_evento.html'%}
 
 
 <main>
   <div class="container">
     {% if status %}
       <div class="row">
-        <div class="col offset-s6">
+        <div align="right">
           <button type="submit" class="blue darken-4 waves-effect waves-light btn">Inscrição realizada</button>
         </div>
       </div>
@@ -42,8 +42,11 @@
         <p><strong>Endereço:</strong> {{object.endereco}}</p>
         <p><strong>Data de Início:</strong> {{object.dataInicio}}</p>
         <p><strong>Data de Fim:</strong> {{object.dataFim}}</p>
+        {% if request.user.is_staff %}
+
         <a href="/eventos/novaProgramacao/{{object.pk}}" class="waves-effect waves-light btn">Cadastrar Programação</a>
 
+        {% endif %}
       </div>
     </div>
 

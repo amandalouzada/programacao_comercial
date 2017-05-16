@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_evento.html'%}
+
+<main class="container">
+  <h3>Programação</h3>
+  <div class="row">
+    <div class="col s12">
+      <nav>
+        <ul class="tabs nav-wrapper">
+          <li class="tab col s3"><a class="active" href="#test1">Mini-curso</a></li>
+          <li class="tab col s3"><a href="#test2">Palestra</a></li>
+          <li class="tab col s3"><a href="#test3">WorkShop</a></li>
+          <li class="tab col s3"><a href="#test4">Trabalhos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div id="test1" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+          </tr>
+        <thead>
+        <tbody>
+      {% for programacao in object_list %}
+        {% if programacao.tipo == 1 %}
+        <tr>
+          <td><strong>{{programacao.nome}}</strong> {{programcao.descricao}}</td>
+          <td>{{programacao.dataInicio |  date:"d/m - H:i"}} até {{programacao.dataFim |  date:"d/m - H:i"}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      </table>
+    </div>
+    <div id="test2" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+          </tr>
+        <thead>
+        <tbody>
+      {% for programacao in object_list %}
+        {% if programacao.tipo == 2 %}
+        <tr>
+          <td><strong>{{programacao.nome}}</strong> {{programcao.descricao}}</td>
+          <td>{{programacao.dataInicio |  date:"d/m - H:i"}} até {{programacao.dataFim |  date:"d/m - H:i"}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      </table>
+    </div>
+    <div id="test3" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+          </tr>
+        <thead>
+        <tbody>
+      {% for programacao in object_list %}
+        {% if programacao.tipo == 3 %}
+        <tr>
+          <td><strong>{{programacao.nome}}</strong> {{programcao.descricao}}</td>
+          <td>{{programacao.dataInicio |  date:"d/m - H:i"}} até {{programacao.dataFim |  date:"d/m - H:i"}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      </table>
+    </div>
+    <div id="test4" class="col s12">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+          </tr>
+        <thead>
+        <tbody>
+      {% for programacao in object_list %}
+        {% if programacao.tipo == 4 %}
+        <tr>
+          <td><strong>{{programacao.nome}}</strong> {{programcao.descricao}}</td>
+          <td>{{programacao.dataInicio |  date:"d/m - H:i"}} até {{programacao.dataFim |  date:"d/m - H:i"}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+{% endblock content %}

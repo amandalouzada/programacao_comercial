@@ -15,23 +15,40 @@
   <h4>Novo Evento</h4>
   <form class="row" action="/eventos/novo/" method="post">
     {%csrf_token%}
-    {%for campo in form%}
-    <div class="input-field col s6">
-      {{campo}}
-      <label>{{campo.label}}</label>
-    </div>
-    {%endfor%}
-    <div class="input-field col s6">
-      <input type="date" class="datepicker" name="horario">
-      <label>Início</label>
-    </div>
-    <div class="input-field col s6">
-      <input type="date" class="datepicker" name="horario">
-      <label>Fim</label>
-    </div>
     <div class="input-field col s12">
-      <input class="datetimepicker" type="text" >
-    </div>
+          <input type="text" name="nome" id="id_nome" maxlength="200" required />
+          <label>Nome do evento</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input type="text" name="descricao" id="id_descricao" maxlength="200" required />
+          <label>Descrição</label>
+        </div>
+
+        <div class="input-field col s12">
+          <input type="text" name="endereco" id="id_endereco" maxlength="200" required />
+          <label>Endereço</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="text" name="local" id="id_local" maxlength="200" required />
+          <label>Local</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="number" name="numeroVagas" id="id_numeroVagas" required />
+          <label>Número de Vagas</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="text" name="dataInicio" class="datepicker" id="id_dataInicio" required />
+          <label>Data de Início</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input type="text" name="dataFim" class="datepicker" id="id_dataFim" required />
+          <label>Data de Fim</label>
+        </div>
     <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
   </form>
 </main>

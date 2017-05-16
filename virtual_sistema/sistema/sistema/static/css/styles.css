@@ -22,4 +22,20 @@ a.card-image {
 .imagem {
   max-width: 90%; }
 
+.tabs .tab a.active {
+  color: #01579b !important;
+}
+
+.tabs .tab a:hover {
+  color: #01579b;
+}
+
+.tabs .tab a {
+  color: #01579b;
+}
+
+.tabs .indicator{
+  background-color: #01579b;
+}
+
 /*# sourceMappingURL=styles.css.map */

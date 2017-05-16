@@ -7,7 +7,10 @@
     <h3>Eventos</h3>
     <div class="collection">
     {% for evento in object_list %}
+
+      {%if evento.dataFim > time.date %}
       <a href="/eventos/detalhe/{{evento.id}}" class="collection-item">{{evento.nome}}<i class=" right material-icons">send</i></a>
+      {% endif %}
     {% endfor %}
     </div>
 </main>

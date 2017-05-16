@@ -5,9 +5,10 @@ from django.db import models
 class Evento(models.Model):
     nome = models.CharField("Nome do evento",max_length = 200)
     descricao = models.CharField("Descrição",max_length = 200)
-    local = models.CharField("Local",max_length = 200)
     endereco = models.CharField("Endereço",max_length = 200)
+    local = models.CharField("Local",max_length = 200)
     numeroVagas = models.IntegerField("Número de Vagas")
+    numeroInscritos = models.IntegerField(default=0)
     dataInicio = models.DateField("Data de Início")
     dataFim = models.DateField("Data de Fim")
 
@@ -27,8 +28,8 @@ class Programacao(models.Model):
     nome = models.CharField(max_length = 100)
     descricao = models.CharField(max_length = 400)
     tipo = models.IntegerField(choices=TIPO_PROGRAMACAO, default=2)
-    dataInicio = models.DateField("Início",null=False)
-    dataFim = models.DateField("Fim",null=False)
+    dataInicio = models.DateTimeField("Início",null=False)
+    dataFim = models.DateTimeField("Fim",null=False)
     evento = models.ForeignKey(Evento)
 
     def __str__(self):

@@ -1,0 +1,34 @@
+<header>
+  <nav class="nav-fixed light-blue darken-4" *ngIf="mostrarMenu">
+    <div class="nav-wrapper">
+      <a href="#" data-activates="slide-out" class="button-collapse top-nav full hide-on-large-only">
+        <i class="material-icons">menu</i>
+      </a>
+      <a class="brand-logo right" href="/logout"><i class="white-text material-icons">power_settings_new</i></a>
+    </div>
+  </nav>
+  <ul id="slide-out" class="side-nav fixed blue-grey darken-4 white-text"  *ngIf="mostrarMenu" >
+    {% if user.is_authenticated%}
+    <div class="container" align="center">
+      <h5>{{user.get_full_name}}</h5>
+    </div>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li class="white-text">
+        <a class="white-text" href="/eventos"><h5>Eventos</h5></a>
+        <div class="collapsible-header active"><h6>Evento</h6></div>
+        <ul class="collapsible-body blue-grey darken-3">
+          <li><a class="white-text" href="/eventos/detalhe/{{object.pk}}"><i class="white-text material-icons">event</i>{{object.nome}}</a></li>
+          <li><a class="white-text" href="/eventos/listProgramacao/{{object.pk}}"><i class="white-text material-icons">list</i>Programação</a></li>
+          {% if user.is_staff %}
+          <li><a class="white-text" href="/eventos/novaProgramacao/{{object.pk}}"><i class="white-text material-icons">add_circle</i>Nova Programação</a></li>
+          {% endif %}
+        </ul>
+      </li>
+    </ul>
+  </ul>
+  {% else %}
+  <div class="container" align="center">
+    <h5>Sistema de Eventos</h5>
+  </div>
+  {%endif%}
+</header>

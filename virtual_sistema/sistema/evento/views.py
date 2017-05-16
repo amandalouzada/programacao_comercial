@@ -45,6 +45,11 @@ class EventoList(LoginRequiredMixin, ListView):
     model = Evento
     template_name = 'evento/listar.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(EventoList, self).get_context_data(**kwargs)
+        context['time'] = datetime.now
+        return context
+
 
 class EventoDetalhe( TemplateView ):
     template_name = 'evento/detalhe.html'
@@ -109,16 +114,43 @@ class ProgramacaoCreate(LoginRequiredMixin, ParticipanteMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ProgramacaoCreate, self).get_context_data(**kwargs)
         context['form'] = self.form_class
-        context['id'] = kwargs['pk']
+        context['object'] = Evento.objects.get(pk=kwargs['pk'])
         return context
 
     def post(self, request, **kwargs):
         evento = Evento.objects.get(pk=kwargs['pk'])
         form = ProgramacaoForm(request.POST)
-        if form.is_valid():
+        horarioInicio = datetime.strptime(request.POST.get("dataInicio")+' '+request.POST.get("horaInicio")+':'+request.POST.get("minInicio"),"%d/%m/%Y %H:%M")
+        horarioFim = datetime.strptime(request.POST.get("dataFim")+' '+request.POST.get("horaFim")+':'+request.POST.get("minFim"),"%d/%m/%Y %H:%M")
+        if form.is_valid() and horarioInicio < horarioFim:
+            print("Form valido")
             programacao = form.save(commit=False)
+            programacao.dataInicio = horarioInicio
+            programacao.dataFim = horarioFim
             programacao.evento = evento
-        try:
-            programacao.save()
-        except Exception as e:
+            print(request.POST.get("descricao"))
+            
+            try:
+                programacao.save()
+            except Exception as e:
+                return redirect(reverse_lazy('listar-eventos'))
+        else:
             return redirect(reverse_lazy('listar-eventos'))
+
+        return redirect(reverse_lazy('listar-eventos'))
+
+
+class ProgramacaoList(LoginRequiredMixin, ListView):
+    login_url = "/"
+    model = Programacao
+    template_name = 'evento/programacao_list.html'
+
+    def get_context_data(self, **kwargs):
+        self.context = super(ProgramacaoList, self).get_context_data(**kwargs)
+        self.context['object'] = Evento.objects.get(pk=self.kwargs['pk'])
+        return self.context
+
+
+    def get_queryset(self):
+        queryset = Programacao.objects.filter(evento=self.kwargs['pk'])
+        return queryset
