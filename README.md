@@ -1,1 +1,2 @@
-# Sistema de Inscrições de Eventos feito como forma de avaliação para a disciplina de programação comercial
+# Sistema de Inscrições de Eventos 
+Sistema feito como forma de avaliação para a disciplina de programação comercial
