@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_eventos.html'%}
+
+<main class="container">
+  {% for message in messages %}
+  <div class="card red lighten-4">
+    <div class="card-content">
+      <p>{{message}}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+  <h4>{{object.nome}}</h4>
+  <form class="row" action="/eventos/update/{{object.pk}}" method="post">
+    {%csrf_token%}
+    <div class="box-body">
+      {% for campo in form %}
+      <div class="form-group">
+        <label class="myLabel">{{ campo.label }}:</label>
+        {{ campo }}
+      </div>
+      {% endfor %}
+      <button type="submit" class="waves-effect waves-light btn">Cadastrar</button>
+    </form>
+  </main>
+  {% endblock content %}

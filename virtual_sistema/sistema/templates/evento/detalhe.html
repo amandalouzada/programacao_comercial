@@ -6,32 +6,37 @@
 
 <main>
   <div class="container">
+
     {% if status %}
-      <div class="row">
-        <div align="right">
-          <button type="submit" class="blue darken-4 waves-effect waves-light btn">Inscrição realizada</button>
-        </div>
-      </div>
-    {% else %}
     <div class="row">
+      <div align="right">
+        <button type="submit" class="blue darken-4 waves-effect waves-light btn">Inscrição realizada</button>
+      </div>
+    </div>
+    {% elif vagas %}
+    <div class="row" align="right">
       <form class="col offset-s8"action="/eventos/detalhe/{{object.id}}" method="post">{% csrf_token %}
         <button type="submit" class="waves-effect waves-light btn">Inscrever-se</button>
       </form>
     </div>
+    {% else %}
+    <div align="right">
+      <button type="submit" class="red darken-2 waves-effect waves-light btn">Vagas Esgotadas</button>
+    </div>
     {% endif %}
 
     {%if messages %}
-      {% for message in messages %}
-      <div class="row">
-        <div class="col s6">
-          <div class="card red lighten-4">
-              <div class="card-content">
-                <p>{{message}}</p>
-              </div>
+    {% for message in messages %}
+    <div class="row">
+      <div class="col s6">
+        <div class="card red lighten-4">
+          <div class="card-content">
+            <p>{{message}}</p>
           </div>
         </div>
       </div>
-      {% endfor %}
+    </div>
+    {% endfor %}
     {% endif %}
 
     <div class="card">
@@ -44,19 +49,31 @@
         <p><strong>Data de Fim:</strong> {{object.dataFim}}</p>
         {% if request.user.is_staff %}
 
-        <a href="/eventos/novaProgramacao/{{object.pk}}" class="waves-effect waves-light btn">Cadastrar Programação</a>
+        <a href="/eventos/update/{{object.pk}}" class="waves-effect waves-light btn">Editar</a>
 
         {% endif %}
       </div>
     </div>
 
 
+    <div style="position: relative; height: 70px;">
+      <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block; right: 24px;">
+        <a class="btn-floating btn-large red">
+          <i class="material-icons">picture_as_pdf</i>
+        </a>
+        <ul>
+          <li><a href="/eventos/pdf/{{object.id}}" target="_blank"  class="btn-floating green" style="transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;"><i class="large material-icons">list</i></a></li>
+          <li><a href="/eventos/pdfBarcode/{{object.id}}" target="_blank" class="btn-floating  blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;"><i class="material-icons">aspect_ratio</i></a></li>
+        </ul>
+      </div>
+    </div>
 
     {% if request.user.is_staff %}
 
     <ul class="collapsible" data-collapsible="accordion">
       <li>
-        <div class="collapsible-header">Lista de Inscritos</div>
+        <div class="collapsible-header">Lista de Inscritos
+        </div>
         <div class="collapsible-body">
           <div class="collection">
             {% for inscricao in inscritos %}
