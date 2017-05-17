@@ -11,7 +11,7 @@ class Inscricao(models.Model):
 
 
     data = models.DateField(default=datetime.now)
-    credenciado = models.IntegerField(default=1)
+    credenciado = models.IntegerField(default=0)
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
     participante = models.ForeignKey(Participante, on_delete=models.CASCADE, null=False)
 

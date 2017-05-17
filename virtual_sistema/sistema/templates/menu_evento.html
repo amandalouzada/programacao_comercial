@@ -21,6 +21,9 @@
           <li><a class="white-text" href="/eventos/listProgramacao/{{object.pk}}"><i class="white-text material-icons">list</i>Programação</a></li>
           {% if user.is_staff %}
           <li><a class="white-text" href="/eventos/novaProgramacao/{{object.pk}}"><i class="white-text material-icons">add_circle</i>Nova Programação</a></li>
+          <li><a class="white-text" href="/inscricao/credenciamento/{{object.pk}}"><i class="white-text material-icons">account_box</i>Credenciamento</a></li>
+          <li><a class="white-text" href="/inscricao/credenciados/{{object.pk}}"><i class="white-text material-icons">check_circle</i>Credenciados</a></li>
+
           {% endif %}
         </ul>
       </li>

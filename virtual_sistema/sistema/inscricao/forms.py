@@ -6,4 +6,4 @@ class InscricaoForm(forms.ModelForm):
 
     class Meta:
         model = Inscricao
-        exclude = []
+        exclude = ['evento','participante','data']

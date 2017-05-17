@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_evento.html'%}
+
+
+<main>
+  <div class="container">
+    {%csrf_token%}
+    <div class="box-body">
+      <input hidden id="pk" value="{{object.pk}}" ></div>
+      <div class="input-field col s12">
+            <input type="text" name="numero" id="inscricao" maxlength="200" required />
+            <label>Número da Inscrição</label>
+      </div>
+      <button id="btn" class="waves-effect waves-light btn">Credenciar</button>
+</div>
+</main>
+
+{% endblock content %}

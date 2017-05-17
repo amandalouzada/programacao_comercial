@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+{% include 'menu_evento.html'%}
+
+
+<main>
+  <div class="container">
+    <h3>Inscritos</h3>
+    <div class="collection">
+    {% for inscricao in object_list %}
+      <div class="collection-item">{{inscricao.participante.usuario.first_name}} {{inscricao.participante.usuario.last_name}}</div>
+    {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock content %}
